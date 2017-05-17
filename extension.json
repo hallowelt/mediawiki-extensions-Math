@@ -30,7 +30,8 @@
 		"MathValidator": "MathValidator.php",
 		"MathFormatter": "MathFormatter.php",
 		"MathWikidataHook": "MathWikidataHook.php",
-		"MathMLRdfBuilder": "MathMLRdfBuilder.php"
+		"MathMLRdfBuilder": "MathMLRdfBuilder.php",
+		"MathJax": "MathJax.php"
 	},
 	"DefaultUserOptions": {
 		"math": "png"
@@ -72,6 +73,8 @@
 		]
 	},
 	"config": {
+		"MathJaxServerPort": 8003,
+		"MathJaxServerHost": "localhost",
 		"MathCheckFiles": true,
 		"MathDefaultLaTeXMLSetting": {
 			"format": "xhtml",
@@ -112,7 +115,8 @@
 		"MathValidModes": [
 			"png",
 			"source",
-			"mathml"
+			"mathml",
+			"mathjax"
 		],
 		"MathEnableWikibaseDataType": true,
 		"Texvc": false,

@@ -171,6 +171,9 @@ abstract class MathRenderer {
 			case 'latexml':
 				$renderer = new MathLaTeXML( $tex, $params );
 				break;
+			case 'mathjax':
+				$renderer = new MathJax( $tex, $params );
+				break;
 			case 'mathml':
 			default:
 				$renderer = new MathMathML( $tex, $params );
