@@ -1,11 +1,11 @@
-# Install
+## Install
 ```
 git clone https://github.com/ljonka/mediawiki-extensions-Math.git extensions/Math
 echo "wfLoadExtension(\"Math\"); \$wgDefaultUserOptions[\"math\"] = \"mathjax\";" >> LocalSettings.php
 php maintenance/update.php --quick
 ```
 
-# Enable MathJax Service
+## Enable MathJax Service
 ```
 npm install -g pm2
 cd extensions/Math && npm update && pm2 start server && cd ../../
