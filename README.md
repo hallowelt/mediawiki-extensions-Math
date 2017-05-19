@@ -8,7 +8,9 @@ php maintenance/update.php --quick
 ## Enable MathJax Service
 ```
 npm install -g pm2
-cd extensions/Math && npm update && pm2 start server && cd ../../
+[sudo] pm2 startup
+cd extensions/Math && npm update && pm2 start webservices/server && cd ../../
+[sudo] pm2 save
 ```
 
 

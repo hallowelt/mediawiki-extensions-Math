@@ -1,6 +1,6 @@
 <?php
 
-class MathJax extends MathRenderer {
+class MathJaxServer extends MathRenderer {
 
 	protected $renderResult = "";
 
@@ -9,7 +9,34 @@ class MathJax extends MathRenderer {
 	}
 
 	public function getHtmlOutput() {
-		return $this->renderResult;
+		$domImg = new DOMDocument;
+		$domImg->loadXML( $this->renderResult );
+
+		$iWidth = ( int ) $domImg->documentElement->getAttribute( "width" ) * 8;
+		$iHeight = ( int ) $domImg->documentElement->getAttribute( "height" ) * 8;
+
+		//return $this->renderResult;
+		//load svg into image
+		$image = new Imagick();
+		$image->readImageBlob( $domImg->saveXML() );
+		$image->setImageFormat( "png24" );
+		//save image to temp object after scaling failed on svg imported image
+		$nImage = new Imagick();
+		$nImage->readimageblob( $image->getimageblob() );
+		$nImage->scaleImage( $iWidth, $iHeight, true );
+
+		$attributes = [
+			// the former class name was 'tex'
+			// for backwards compatibility we keep that classname
+			'class' => 'mwe-math-fallback-image-inline tex',
+			'alt' => $this->getTex()
+		];
+		return Xml::element( 'img', $this->getAttributes(
+			  'img', $attributes, [
+				'src' => 'data:image/png;base64,' . base64_encode( $nImage->getimageblob() )
+			  ]
+			)
+		);
 	}
 
 	public function render() {
@@ -33,7 +60,7 @@ class MathJax extends MathRenderer {
 
 		$strData = json_encode( $arrData );
 
-		$aOptions['postData'] = $strData;
+		$aOptions[ 'postData' ] = $strData;
 		$this->renderResult = Http::post( $mathJaxServer, $aOptions );
 
 		$bRet = false;

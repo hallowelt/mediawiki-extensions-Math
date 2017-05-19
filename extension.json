@@ -31,7 +31,7 @@
 		"MathFormatter": "MathFormatter.php",
 		"MathWikidataHook": "MathWikidataHook.php",
 		"MathMLRdfBuilder": "MathMLRdfBuilder.php",
-		"MathJax": "MathJax.php"
+		"MathJaxServer": "MathJaxServer.php"
 	},
 	"DefaultUserOptions": {
 		"math": "png"
@@ -116,7 +116,7 @@
 			"png",
 			"source",
 			"mathml",
-			"mathjax"
+			"mathjaxserver"
 		],
 		"MathEnableWikibaseDataType": true,
 		"Texvc": false,
