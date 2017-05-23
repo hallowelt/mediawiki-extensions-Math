@@ -21,6 +21,11 @@ cd extensions/Math && npm update && pm2 start webservices/server && cd ../../
 pm2 save
 ```
 
+## math Syntax reference
+
+Put content in <math></math> Tags.
+Math Reference from Latex: https://www.sharelatex.com/learn/Mathematical_expressions#/Reference_guide
+
 
 This version (for MediaWiki 1.19) has some changes since previous versions:
 
