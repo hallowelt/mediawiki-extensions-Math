@@ -1,7 +1,7 @@
 ## Install
 ```
 git clone https://github.com/ljonka/mediawiki-extensions-Math.git extensions/Math
-echo "wfLoadExtension(\"Math\"); \$wgDefaultUserOptions[\"math\"] = \"mathjax\";" >> LocalSettings.php
+echo "wfLoadExtension(\"Math\"); \$wgDefaultUserOptions[\"math\"] = \"mathjaxserver\";" >> LocalSettings.php
 php maintenance/update.php --quick
 ```
 
