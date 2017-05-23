@@ -5,12 +5,20 @@ echo "wfLoadExtension(\"Math\"); \$wgDefaultUserOptions[\"math\"] = \"mathjaxser
 php maintenance/update.php --quick
 ```
 
-## Enable MathJax Service
+## Enable MathJax Service (Linux)
 ```
 npm install -g pm2
 [sudo] pm2 startup
 cd extensions/Math && npm update && pm2 start webservices/server && cd ../../
 [sudo] pm2 save
+```
+## Enable MathJax Service (Windows)
+```
+npm install -g pm2
+npm install pm2-windows-startup -g
+pm2-startup install
+cd extensions/Math && npm update && pm2 start webservices/server && cd ../../
+pm2 save
 ```
 
 
