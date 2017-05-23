@@ -9,6 +9,9 @@ class MathJaxServer extends MathRenderer {
 	}
 
 	public function getHtmlOutput() {
+		if( !class_exists( "Imagick" ) ){
+			return $this->renderResult;
+		}
 		$domImg = new DOMDocument;
 		$domImg->loadXML( $this->renderResult );
 
