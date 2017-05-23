@@ -23,7 +23,7 @@ pm2 save
 
 ## math Syntax reference
 
-Put content in <pre><math></math></pre> Tags.
+Put content in &lt;math&gt;&lt;/math&gt; Tags.
 Math Reference from Latex: https://www.sharelatex.com/learn/Mathematical_expressions#/Reference_guide
 
 
